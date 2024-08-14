@@ -29,4 +29,23 @@ class user extends BaseController
 //        return Db::getlastSql();
         return json($user);
     }
+
+    public function getLesson11()
+    {
+        $user = Db::name('user')->where('id', 1)->value('name');
+        $user = Db::name('user')->column('name');
+        $user = Db::name('user')->column('name', 'id');
+//        Db::name('user')->chunk(2, function ($user) {
+//            foreach ($user as $user) {
+//                dump($user);
+//            }
+//            echo 1;
+//        });
+//        return json($user);
+
+        $user = Db::name('user')->cursor();
+        foreach ($user as $user) {
+            dump($user);
+        }
+    }
 }
