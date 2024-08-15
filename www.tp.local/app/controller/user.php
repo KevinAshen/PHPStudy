@@ -48,4 +48,68 @@ class user extends BaseController
             dump($user);
         }
     }
+
+    public function addLesson12()
+    {
+//        $data = [
+//            "name"    => "Zhang Mazi",
+//            "age"     => 28,
+//            "gender"  => "Male",
+//            "details" => "I don't have pockmarks on my face!"
+//        ];
+//
+//        return Db::name('user')->insert($data);
+
+//        $data = [
+//            "name"    => "Ma Bangde",
+//            "age"     => 30,
+//            "gender"  => "Male",
+//            "deta"    => "I don't have pockmarks on my face!"
+//        ];
+
+//        return Db::name('user')->strict(false)->insert($data);
+
+//        $data = [
+//            'id'      => 1,
+//            "name"    => "Zhang Mazi",
+//            "age"     => 55,
+//            "gender"  => "Male",
+//            "details" => "I don't have pockmarks on my face!"
+//        ];
+//        return Db::name('user')->replace()->insert($data);
+
+//        $data = [
+//            "name"    => "Zshang Mazi",
+//            "age"     => 55,
+//            "gender"  => "Male",
+//            "details" => "I don't have pockmarks on my face!"
+//        ];
+//        return Db::name('user')->replace()->insertGetId($data);
+//    }
+//        $data = [[
+//            "name" => "Link",
+//            "age" => 19,
+//            "gender" => "Male",
+//            "details" => "First, collect 999 Korok Seeds!"
+//        ], [
+//            "name" => "Purah",
+//            "age" => 100,
+//            "gender" => "Female",
+//            "details" => "I'll first de-age, then quickly grow up again!"
+//        ]];
+//        return Db::name('user')->insertAll($data);
+
+        $data = [[
+            "name"    => "Link",
+            "age"     => 19,
+            "gender"  => "Male",
+            "details" => "First, collect 999 Korok Seeds!"
+        ],[
+            "name"    => "Purah",
+            "age"     => 100,
+            "gender"  => "Female",
+            "details" => "I'll first de-age, then quickly grow up again!"
+        ]];
+        Db::name('user')->replace()->limit(100)->insertAll($data);
+    }
 }
