@@ -112,4 +112,49 @@ class user extends BaseController
         ]];
         Db::name('user')->replace()->limit(100)->insertAll($data);
     }
+
+    public function updateLesson13()
+    {
+//        $data = [
+//            "name" => "Wang Sangou",
+//            "age"  => 13,
+//        ];
+//
+//        return Db::name('user')->where('id', 4)->update($data);
+
+//        $data = [
+//            "id"   => 4,
+//            "name" => "Wang Sangou",
+//            "age"  => 133,
+//        ];
+//        return Db::name('user')->update($data);
+
+//        $data = [
+//            "id"   => 4,
+//            "name" => "Wang Sangou",
+//            "age"  => 133,
+//        ];
+//        return Db::name('user')->exp('details', 'UPPER(details)')->update($data);
+
+//        $data = [
+//            "id"   => 5,
+//            "name" => "W1ang Sangou",
+//        ];
+//        Db::name("user")->where('id', 9)->setInc("age", 1, 600);
+//        return Db::name("user")->inc("age")->dec("age", 2)->update($data);
+
+        Db::name("user")->where("id", 4)->update([
+            "details"   =>  Db::raw("UPPER(details)"),
+            "age"       =>  Db::raw("age-2")
+        ]);
+        return Db::getLastSql();
+    }
+
+    public function delLesson13()
+    {
+//        Db::name("user")->delete(2);
+//        Db::name("user")->delete([7,8,9]);
+        Db::name("user")->where("id", 13)->delete();
+        return Db::getLastSql();
+    }
 }
