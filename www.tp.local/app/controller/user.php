@@ -157,4 +157,28 @@ class user extends BaseController
         Db::name("user")->where("id", 13)->delete();
         return Db::getLastSql();
     }
+
+    public function queryLesson14()
+    {
+//        $user = Db::name('user')->where('id', '>', '4')->select();
+//        return json($user);
+
+//        $user = Db::name('user')->where('name', 'like', 'z%')->select();
+//        return json($user);
+
+//        $user = Db::name('user')->whereLike('name', 'z%')->select();
+//        return json($user);
+
+//        $user = Db::name('user')->where('id', 'id', '[1, 3, 5]')->select();
+//        return json($user);
+
+//        $user = Db::name('user')->whereIn('id', [1, 3, 5])->select();
+//        return json($user);
+
+//        $user = Db::name('user')->whereNotBetween('id', [1, 5])->select();
+//        return json($user);
+
+        $user = Db::name("user")->whereExp("id","<> 8 and id >1")->select();
+        return json($user);
+    }
 }
