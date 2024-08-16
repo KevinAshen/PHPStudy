@@ -178,7 +178,21 @@ class user extends BaseController
 //        $user = Db::name('user')->whereNotBetween('id', [1, 5])->select();
 //        return json($user);
 
-        $user = Db::name("user")->whereExp("id","<> 8 and id >1")->select();
+//        $user = Db::name("user")->whereExp("id","<> 8 and id >1")->select();
+//        return json($user);
+
+
+    }
+
+    public function queryLesson15()
+    {
+        $user = Db::name("user")->when(true, function ($query) {
+            // 满足条件时执行这段SQL
+            $query->where("id", ">", 5);
+        }, function ($query) {
+            // 不满足条件时执行这段SQL
+            $query->where("id", "<=", 5);
+        })->select();
         return json($user);
     }
 }
